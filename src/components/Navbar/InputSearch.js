@@ -14,7 +14,7 @@ const InputSearch = () => {
             if (CurrentValue.trim() !== '') {
                   Route.push(`/search/${CurrentValue}`)
             } else {
-                  Route.push(`/`)
+                  alert("Please fill the input")
             }
       }
 
