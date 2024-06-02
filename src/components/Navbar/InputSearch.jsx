@@ -13,8 +13,8 @@ const InputSearch = () => {
             const CurrentValue = searchRef.current.value
             if (CurrentValue.trim() !== '') {
                   Route.push(`/search/${CurrentValue}`)
-            } else {
-                  alert("Please fill the input")
+            } else if (!CurrentValue) {
+                  return
             }
       }
 
