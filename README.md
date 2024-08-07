@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CaffAnimeList
 
-## Getting Started
+CaffAnimeList is a web application built using Next.js and TailwindCSS that allows users to browse and search for anime information. It utilizes the Jikan API to fetch data about various anime series and movies.
 
-First, run the development server:
+**Note: This project is still in development.**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Browse popular anime
+- Search for anime by title
+- View detailed information about each anime, including synopsis, ratings, and more
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Frontend Framework:** [Next.js](https://nextjs.org/)
+- **Styling:** [TailwindCSS](https://tailwindcss.com/)
+- **API:** [Jikan API](https://jikan.moe/)
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/EvanescenT07/CaffAnimeList.git
+    cd CaffAnimeList
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. **Set up environment variables:**
 
-## Deploy on Vercel
+    Create a `.env.local` file in the root of your project and add the following environment variable:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```plaintext
+    NEXT_PUBLIC_ANIME_BASE_URL=https://api.jikan.moe/v4
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Usage
+
+- **Home Page:** Displays a list of popular anime.
+- **Search:** Use the search bar to find anime by title.
+- **Anime Details:** Click on an anime title to view detailed information, including the synopsis, ratings, and more.
+
+## Project Structure
+
+```plaintext
+CaffAnimeList/
+├── components/       # Reusable React components
+├── pages/            # Next.js pages
+│   ├── index.js      # Home page
+│   └── [id].js       # Dynamic route for anime details
+├── public/           # Static assets
+├── styles/           # TailwindCSS styles
+├── .env.local        # Environment variables
+├── next.config.js    # Next.js configuration
+├── package.json      # Project metadata and dependencies
+└── README.md         # Project documentation
