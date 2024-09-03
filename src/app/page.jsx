@@ -1,22 +1,23 @@
-import AnimeList from "@/components/ListAnime"
-import Header from "@/components/ListAnime/Header"
+import AnimeList from "@/components/ListAnime";
+import Header from "@/components/ListAnime/Header";
+import { fetchAPI } from "./libs/api";
 
 const Page = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_ANIME_BASE_URL}/top/anime?limit=8`)
-  const topAnime = await res.json()
-  
+  const topAnime = await fetchAPI("top/anime", "limit=8");
+
   return (
     <>
       {/* Most Populer */}
       <section>
-        <Header title="Most Popular Anime" linkTitle="See All" linkHref="/populerAnime" />
-        <AnimeList api={topAnime}/>
+        <Header
+          title="Most Popular Anime"
+          linkTitle="See All"
+          linkHref="/populerAnime"
+        />
+        <AnimeList api={topAnime} />
       </section>
     </>
-  )
-}
+  );
+};
 
 export default Page;
-
-
-
