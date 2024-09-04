@@ -8,5 +8,16 @@ export const fetchAPI = async (resource, query) => {
 
 export const fetchNestedResponse = async (resource, objectProps) => {
   const response = await fetchAPI(resource);
-  return response.data.flatMap((data) => data.entry);
+  return response.data.flatMap((item) => item[objectProps]);
+};
+
+export const reproduceData = (data, gapData) => {
+  const firstData = ~~(Math.random() * (data.length - gapData) + 1);
+  const lastData = firstData + gapData;
+
+  const response = {
+    data: data.slice(firstData, lastData),
+  };
+
+  return response;
 };
