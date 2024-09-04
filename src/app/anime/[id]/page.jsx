@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { fetchAPI } from "@/app/libs/api";
+import { fetchAPI } from "@/libs/api";
 import VideoPLayer from "@/components/utilities/VideoPlayer";
 
 const Page = async ({ params: { id } }) => {
