@@ -8,9 +8,6 @@ const Page = async () => {
     "recommendations/anime",
     "entry"
   );
-  const test = reproduceData(recommendedAnime, 8);
-  console.log(test);
-
   recommendedAnime = reproduceData(recommendedAnime, 8);
 
   return (
@@ -26,11 +23,7 @@ const Page = async () => {
       </section>
       {/* Recommendation */}
       <section>
-        <Header
-          title="Recommendation Anime"
-          linkTitle="See All"
-          linkHref="/populerAnime"
-        />
+        <Header title="Recommendation Anime" />
         <AnimeList api={recommendedAnime} />
       </section>
     </>
