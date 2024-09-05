@@ -1,10 +1,15 @@
 import Link from "next/link";
+import { AuthUserSession } from "@/libs/auth";
 
-const UserAuthButton = () => {
+const UserAuthButton = async () => {
+  const User = await AuthUserSession();
+  const actionLabel = User ? "Sign Out" : "Sign In";
+  const actionURL = User ? "api/auth/signout" : "api/auth/signin";
+
   return (
     <div>
-      <Link href="api/auth/signin" className="text-color-white">
-        Sign In
+      <Link href={actionURL} className="text-color-white">
+        {actionLabel}
       </Link>
     </div>
   );
