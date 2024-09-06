@@ -5,12 +5,22 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "placehold.co",
-        pathname: "/**", // Optionally add a pathname pattern if needed
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "cdn.myanimelist.net",
-        pathname: "/**", // Optionally add a pathname pattern if needed
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        pathname: "/**", 
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        pathname: "/**",
       },
     ],
   },
