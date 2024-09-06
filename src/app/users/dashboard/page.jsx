@@ -1,7 +1,9 @@
 import { AuthUserSession } from "@/libs/auth";
+// import { useRouter } from "next/router";
 
 const Page = async () => {
 const user = await AuthUserSession();
+// const router = useRouter();
 
   return (
     <div className="flex flex-col gap-4 px-5 py-5 text-color-white">
