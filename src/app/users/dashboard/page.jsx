@@ -1,16 +1,33 @@
 import { AuthUserSession } from "@/libs/auth";
-// import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Page = async () => {
-const user = await AuthUserSession();
-// const router = useRouter();
+  const user = await AuthUserSession();
 
   return (
-    <div className="flex flex-col gap-4 px-5 py-5 text-color-white">
-      <h1 className="text-4xl">Dashboard</h1>
-      <div className="flex flex-row gap-4">
-        <img src={user?.image} alt="User Profile Picture" width={100} height={100} className="object-cover rounded-full w-64 h-64" />
-        <h3 className="text-2xl font-medium py-4 px-3">Hi, {user?.name}</h3>
+    <div className="flex flex-col mt-7 text-color-white justify-center items-center">
+      <img
+        src={user?.image}
+        alt="User Profile Picture"
+        width={50}
+        height={50}
+        className="object-cover rounded-full w-48 h-48"
+      />
+      <h3 className="text-3xl font-medium py-4">Hi, {user?.name}</h3>
+
+      <div className="py-5 flex flex-col gap-5">
+        <Link
+          href="/users/dashboard/collection"
+          className="bg-color-secondary text-white py-2 px-4 rounded-full font-bold text-lg"
+        >
+          My Collection
+        </Link>
+        <Link
+          href="/users/dashboard/comment"
+          className="bg-color-secondary text-white py-2 px-4 rounded-full font-bold text-lg"
+        >
+          My Comment
+        </Link>
       </div>
     </div>
   );
