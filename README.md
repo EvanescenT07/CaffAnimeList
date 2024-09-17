@@ -28,7 +28,7 @@ CaffAnimeList is a web application built using Next.js and TailwindCSS that allo
 2. **Install dependencies:**
 
    ```bash
-   npm install
+   bun install
    ```
 
 3. **Set up environment variables:**
@@ -42,7 +42,7 @@ CaffAnimeList is a web application built using Next.js and TailwindCSS that allo
 4. **Run the development server:**
 
    ```bash
-   npm run dev
+   bun run dev
    ```
 
    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
