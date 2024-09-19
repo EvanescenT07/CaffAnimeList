@@ -1,10 +1,10 @@
 import NextAuth from "next-auth/next";
-import githubAuth from "next-auth/providers/github";
+import GithubProvider from "next-auth/providers/github";
 import googleAuth from "next-auth/providers/google";
 
 export const authOptions = {
   providers: [
-    githubAuth({
+    GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
