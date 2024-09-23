@@ -38,4 +38,3 @@ const Page = () => {
 
 export default Page;
 
-// TODO: Finish collection page
