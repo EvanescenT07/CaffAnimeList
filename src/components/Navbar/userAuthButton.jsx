@@ -4,7 +4,7 @@ import { AuthUserSession } from "@/libs/auth";
 const UserAuthButton = async () => {
   const User = await AuthUserSession();
   const actionLabel = User ? "Sign Out" : "Sign In";
-  const actionURL = User ? "api/auth/signout" : "api/auth/signin";
+  const actionURL = User ? "/api/auth/signout" : "/api/auth/signin";
 
   const dahsboardReveal = User ? "Dashboard" : null;
 
@@ -21,4 +21,3 @@ const UserAuthButton = async () => {
 };
 
 export default UserAuthButton;
-

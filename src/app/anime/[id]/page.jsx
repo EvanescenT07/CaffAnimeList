@@ -2,15 +2,26 @@ import React from "react";
 import Image from "next/image";
 import { fetchAPI } from "@/libs/api";
 import VideoPLayer from "@/components/utilities/VideoPlayer";
+import CollectionButton from "@/components/ListAnime/CollectionButton";
+import { AuthUserSession } from "@/libs/auth";
+import prisma from "@/libs/prisma";
 
 const Page = async ({ params: { id } }) => {
   const animeData = await fetchAPI(`anime/${id}`);
+  const user = await AuthUserSession();
+  const collection = await prisma.collection.findFirst({
+    where: { user_email: user?.email, anime_mal_id: id },
+  });
+
   return (
     <>
       <div className="pt-4 px-4">
         <div className="text-3xl text-color-white font-bold">
           {animeData.data.title} - {animeData.data.year}
         </div>
+        {!collection && user && (
+          <CollectionButton anime_mal_id={id} user_email={user?.email} />
+        )}
         <div className="flex gap-2 overflow-x-auto">
           <div className="p-1 m-2 w-24 flex flex-col justify-center items-center text-color-white border rounded-full border-color-white">
             <h3 className="font-bold">Rank</h3>
