@@ -22,7 +22,9 @@ const Page = async ({ params: { id } }) => {
         {user && (
           <CollectionButton
             anime_mal_id={id}
-            user_email={user.email}
+            user_email={user?.email}
+            anime_image={animeData.data.images.webp.image_url}
+            anime_title={animeData.data.title}
             isInCollection={!!collection}
           />
         )}

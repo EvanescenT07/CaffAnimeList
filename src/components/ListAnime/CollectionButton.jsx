@@ -1,12 +1,18 @@
 "use client";
 import React, { useState } from "react";
 
-const CollectionButton = ({ anime_mal_id, user_email, isInCollection: initialIsInCollection }) => {
+const CollectionButton = ({
+  anime_mal_id,
+  user_email,
+  anime_image,
+  anime_title,
+  isInCollection: initialIsInCollection,
+}) => {
   const [isInCollection, setIsInCollection] = useState(initialIsInCollection);
 
   const handleAddCollection = async (event) => {
     event.preventDefault();
-    const data = { anime_mal_id, user_email };
+    const data = { anime_mal_id, user_email, anime_image, anime_title };
     const response = await fetch("/api/v1/collection", {
       method: "POST",
       body: JSON.stringify(data),
@@ -19,7 +25,7 @@ const CollectionButton = ({ anime_mal_id, user_email, isInCollection: initialIsI
 
   const handleDeleteCollection = async (event) => {
     event.preventDefault();
-    const data = { anime_mal_id, user_email };
+    const data = { anime_mal_id, user_email, anime_image, anime_title };
     const response = await fetch("/api/v1/collection", {
       method: "DELETE",
       body: JSON.stringify(data),

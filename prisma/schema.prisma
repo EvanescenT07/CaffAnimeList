@@ -16,7 +16,9 @@ datasource db {
 model Collection {
   id              Int      @id @default(autoincrement())
   anime_mal_id    String
-  user_email      String
+  anime_image     String
+  anime_title     String?
+  user_email      String?
 
   @@unique([user_email, anime_mal_id])
 }
