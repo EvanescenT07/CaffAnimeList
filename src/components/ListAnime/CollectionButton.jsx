@@ -1,11 +1,10 @@
 "use client";
-
 import React, { useState } from "react";
 
-const CollectionButton = ({ anime_mal_id, user_email }) => {
-  const [isCreated, setIsCreated] = useState(false);
+const CollectionButton = ({ anime_mal_id, user_email, isInCollection: initialIsInCollection }) => {
+  const [isInCollection, setIsInCollection] = useState(initialIsInCollection);
 
-  const handleCollection = async (event) => {
+  const handleAddCollection = async (event) => {
     event.preventDefault();
     const data = { anime_mal_id, user_email };
     const response = await fetch("/api/v1/collection", {
@@ -13,19 +12,36 @@ const CollectionButton = ({ anime_mal_id, user_email }) => {
       body: JSON.stringify(data),
     });
     const collection = await response.json();
-    if (collection.success) {
-      setIsCreated(collection.isCreated);
+    if (collection.isCreated) {
+      setIsInCollection(true);
     }
-    return;
+  };
+
+  const handleDeleteCollection = async (event) => {
+    event.preventDefault();
+    const data = { anime_mal_id, user_email };
+    const response = await fetch("/api/v1/collection", {
+      method: "DELETE",
+      body: JSON.stringify(data),
+    });
+    const collection = await response.json();
+    if (collection.isDeleted) {
+      setIsInCollection(false);
+    }
   };
 
   return (
     <>
-      {isCreated ? (
-        <p className="text-color-white">Added to Collection</p>
+      {isInCollection ? (
+        <button
+          onClick={handleDeleteCollection}
+          className="text-base text-color-white bg-color-secondary px-2 py-1 rounded-3xl my-1"
+        >
+          Delete from Collection
+        </button>
       ) : (
         <button
-          onClick={handleCollection}
+          onClick={handleAddCollection}
           className="text-base text-color-white bg-color-secondary px-2 py-1 rounded-3xl my-1"
         >
           Add To Collection

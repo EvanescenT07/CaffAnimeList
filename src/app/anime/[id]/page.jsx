@@ -19,8 +19,12 @@ const Page = async ({ params: { id } }) => {
         <div className="text-3xl text-color-white font-bold">
           {animeData.data.title} - {animeData.data.year}
         </div>
-        {!collection && user && (
-          <CollectionButton anime_mal_id={id} user_email={user?.email} />
+        {user && (
+          <CollectionButton
+            anime_mal_id={id}
+            user_email={user.email}
+            isInCollection={!!collection}
+          />
         )}
         <div className="flex gap-2 overflow-x-auto">
           <div className="p-1 m-2 w-24 flex flex-col justify-center items-center text-color-white border rounded-full border-color-white">
