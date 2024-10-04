@@ -5,6 +5,8 @@ import VideoPLayer from "@/components/utilities/VideoPlayer";
 import CollectionButton from "@/components/ListAnime/CollectionButton";
 import { AuthUserSession } from "@/libs/auth";
 import prisma from "@/libs/prisma";
+import InputComment from "@/components/ListAnime/InputComment";
+import CommentBox from "@/components/ListAnime/CommentBox";
 
 const Page = async ({ params: { id } }) => {
   const animeData = await fetchAPI(`anime/${id}`);
@@ -59,9 +61,22 @@ const Page = async ({ params: { id } }) => {
             alt={animeData.data.images.webp.image_url}
             width={350}
             height={350}
-            className="rounded w-full object-cover"
+            className="rounded w-full object-cover animate-none"
           />
           <p className="mx-5 text-l text-justify">{animeData.data.synopsis}</p>
+        </div>
+        <div className="py-7">
+          <h3 className="text-color-white text-2xl mb-2">Comment</h3>
+          <CommentBox anime_mal_id={id} />
+
+          {user && (
+            <InputComment
+              anime_mal_id={id}
+              user_email={user?.email}
+              username={user?.name}
+              anime_title={animeData.data.title}
+            />
+          )}
         </div>
         <div>
           <VideoPLayer videoID={animeData.data.trailer.youtube_id} />
