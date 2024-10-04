@@ -2,25 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-*, *::before, *::after{
+*,
+*::before,
+*::after {
   padding: 0;
   margin: 0;
 }
 
 img {
-  transition: .3s ease all;
-  -webkit-animation: .3s ease all;
-  -moz-transition: .3 ease all;
-  -ms-transition: .3 ease all;
-  -o-transition: .3 ease all;
-  transition: .3 ease all;
-  animation: .3 ease all;
+  transition: 0.3s ease all;
+  -webkit-animation: 0.3s ease all;
+  -moz-transition: 0.3 ease all;
+  -ms-transition: 0.3 ease all;
+  -o-transition: 0.3 ease all;
+  transition: 0.3 ease all;
+  animation: 0.3 ease all;
 }
 
-img:hover{
+img:hover {
   transform: scale(1.05);
 }
 
+img.animate-none {
+  transition: none;
+  animation: none;
+}
+
+img.animate-none:hover {
+  transform: none;
+}
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -52,22 +62,23 @@ body {
 }
 
 .loading {
-  --d:44px;
+  --d: 44px;
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  color: #DFD0B8;
-  box-shadow: 
-    calc(1*var(--d))      calc(0*var(--d))     0 0,
-    calc(0.707*var(--d))  calc(0.707*var(--d)) 0 2px,
-    calc(0*var(--d))      calc(1*var(--d))     0 4px,
-    calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 6px,
-    calc(-1*var(--d))     calc(0*var(--d))     0 8px,
-    calc(-0.707*var(--d)) calc(-0.707*var(--d))0 10px,
-    calc(0*var(--d))      calc(-1*var(--d))    0 12px;
+  color: #dfd0b8;
+  box-shadow: calc(1 * var(--d)) calc(0 * var(--d)) 0 0,
+    calc(0.707 * var(--d)) calc(0.707 * var(--d)) 0 2px,
+    calc(0 * var(--d)) calc(1 * var(--d)) 0 4px,
+    calc(-0.707 * var(--d)) calc(0.707 * var(--d)) 0 6px,
+    calc(-1 * var(--d)) calc(0 * var(--d)) 0 8px,
+    calc(-0.707 * var(--d)) calc(-0.707 * var(--d)) 0 10px,
+    calc(0 * var(--d)) calc(-1 * var(--d)) 0 12px;
   animation: s7 1s infinite steps(8);
 }
 
 @keyframes s7 {
-  100% {transform: rotate(1turn)}
+  100% {
+    transform: rotate(1turn);
+  }
 }

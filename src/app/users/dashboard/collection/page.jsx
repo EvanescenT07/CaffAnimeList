@@ -19,17 +19,17 @@ const Page = async () => {
             <Link
               key={index}
               href={`/anime/${collect.anime_mal_id}`}
-              className="relative border-2 border-color-secondary"
+              className="relative "
             >
               <Image
                 src={collect.anime_image}
                 alt={collect.anime_title}
-                width={150}
-                height={150}
+                width={200}
+                height={300}
                 className="w-full animate-none"
               />
               <div className="absolute flex justify-center items-center bottom-0 w-full bg-color-white">
-                <h5 className="text-xl text-center bg-color-white">
+                <h5 className="text-xl text-center bg-color-white py-3 rounded-xl">
                   {collect.anime_title}
                 </h5>
               </div>
