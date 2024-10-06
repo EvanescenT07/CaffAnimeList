@@ -2,8 +2,6 @@
 
 CaffAnimeList is a web application built using Next.js and TailwindCSS that allows users to browse and search for anime information. It utilizes the Jikan API to fetch data about various anime series and movies.
 
-**Note: This project is still in development.**
-
 ## Features
 
 - Browse popular anime
